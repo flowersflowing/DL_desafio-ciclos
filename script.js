@@ -15,20 +15,28 @@ if (opcion == 2) {
 //Si ingresa 3
 
 if (opcion == 3) {
-    opción3();
+    opcion3();
 };
 
 //Si ingresa 4
 
-// if (opcion == 4) {
-//     4.- Pedir el nombre de tres frutas, c/u de manera individual. Una vez ingresadas todas deben imprimirse todas por consola, a excepción de manzana.
-// };
+if (opcion == 4) {
+    opcion4();
+};
 
 //Si ingresa 5
 
-// if (opcion == 5) {
-//     5.- Pedir nombre, determinar la cantidad de vocales y consonantes y mostrarlos en pantalla con alert.
-// };
+if (opcion == 5) {
+    opcion5();
+};
+
+//Si ingresa 6
+
+if (opcion == 6) {
+    document.write('Hola, ingresaste el 6 y no había instrucción para este caso.');
+};
+
+//FUNCIONES
 
 //Función para pedir un número del 1 al 100 y que devuelva en consola todos los números del 1 al seleccionado
 
@@ -51,7 +59,6 @@ function opcion1 () {
 
 function opcion2 () {
     let horseColor = prompt('¿De qué color es el caballo blanco de Napoleón?');
-    // let white = /['blanco']/
     
     if (horseColor != 'blanco') {
         opcion2();
@@ -61,10 +68,42 @@ function opcion2 () {
         console.log('OK');
 };
 
-//3.- pedir promedio de notas de Matemáticas, Física y Ciencias. Indicar en pantalla el promedio de notas (alert). El promedio de notas debe estar redondeado a un número entero.
+//Función que pide notas y devuelde el promedio redondeado en un alert
 
-function opción3 (prom1, prom2, prom3) {
-    let promMath = prompt('Ingresa tu promedio de Matemáticas');
-    let promPhys = prompt('Ingresa tu promedio de Física');
-    let promSci = prompt('Ingresa tu promedio de Ciencias');
+function opcion3 () {
+    let promMath = parseInt(prompt('Ingresa tu promedio de Matemáticas'));
+    let promPhys = parseInt(prompt('Ingresa tu promedio de Física'));
+    let promSci = parseInt(prompt('Ingresa tu promedio de Ciencias'));
+
+    let promedio = (promMath + promPhys + promSci) / 3;
+    //Redondear
+    alert('Tu promedio de notas es: ' + promedio);
+};
+
+//4.- Pedir el nombre de tres frutas, c/u de manera individual. Una vez ingresadas todas deben imprimirse todas por consola, a excepción de manzana.
+
+function opcion4 () {
+    let roja = prompt('Ingresa el nombre de una fruta roja');
+    let verde = prompt('Ingresa el nombre de la fruta verde');
+    let amarilla = prompt('Ingresa el nombre de una fruta amarilla');
+
+    let arrFrutas = [roja, verde, amarilla];
+
+    for (const fruta of arrFrutas) {
+        console.log(fruta);        
+    } //que no imprima la manzana
+
+    /* let arrFrutas = {
+        fruta1: roja, 
+        fruta2: verde, 
+        fruta3: amarilla,
+    };
+    console.log(arrFrutas.fruta1, arrFrutas.fruta2, arrFrutas.fruta3);*/
+};
+
+//5.- Pedir nombre, determinar la cantidad de vocales y consonantes y mostrarlos en pantalla con alert.
+
+function opcion5 () {
+    prompt('Hola, por favor ingresa tu nombre:');
+    
 };
