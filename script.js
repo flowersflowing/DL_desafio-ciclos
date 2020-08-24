@@ -36,6 +36,10 @@ if (opcion == 6) {
     document.write('Hola, ingresaste el 6 y no había instrucción para este caso.');
 };
 
+if (opcion >= 7 || opcion <= 0) {
+    alert('Debes ingresar un número entre el 1 y el 6');
+};
+
 
 //FUNCIONES
 
@@ -43,7 +47,6 @@ if (opcion == 6) {
 
 function opcion1 () {
     let number = prompt('Por favor ingresa un número entre el 1 y el 100');
-    // let patron = /[1-100]/;
     
     if (number <= 100) {
         for (let i = 1; i <= number; i++) {
@@ -59,7 +62,7 @@ function opcion1 () {
 //Función que pregunte por el color del caballo, si responde blanco termina, si no continua haciéndole la pregunta
 
 function opcion2 () {
-    let horseColor = prompt('¿De qué color es el caballo blanco de Napoleón?');
+    let horseColor = prompt('¿De qué color es el caballo blanco de Napoleón?').toLowerCase();
     
     if (horseColor != 'blanco') {
         opcion2();
@@ -78,21 +81,25 @@ function opcion3 () {
 
     let promedio = (promMath + promPhys + promSci) / 3;
     //Redondear
-    alert('Tu promedio de notas es: ' + promedio);
+
+    console.log(promedio);
+    alert('Tu promedio de notas es: ' + Math.round(promedio));
 };
 
-//4.- Pedir el nombre de tres frutas, c/u de manera individual. Una vez ingresadas todas deben imprimirse todas por consola, a excepción de manzana.
+//Función que pide tres frutas individualmente y devuelve todas menos manzana en la consola
 
 function opcion4 () {
-    let roja = prompt('Ingresa el nombre de una fruta roja');
-    let verde = prompt('Ingresa el nombre de la fruta verde');
-    let amarilla = prompt('Ingresa el nombre de una fruta amarilla');
+    let roja = prompt('Ingresa el nombre de una fruta roja').toLowerCase();
+    let verde = prompt('Ingresa el nombre de la fruta verde').toLowerCase();
+    let amarilla = prompt('Ingresa el nombre de una fruta amarilla').toLowerCase();
     
-    const patron = /manzana/gim;
     let arrFrutas = [roja, verde, amarilla];
+    // const patron = /manzana/gim; No supe bien cómo ocupar las expresiones regulares en este caso, así que las pasé a minúsculas.
 
     for (const fruta of arrFrutas) {
-        console.log(fruta);        
+        if (fruta !== 'manzana') {
+            console.log(fruta);
+        }        
     }
 
     /* let arrFrutas = {
@@ -103,10 +110,10 @@ function opcion4 () {
     console.log(arrFrutas.fruta1, arrFrutas.fruta2, arrFrutas.fruta3);*/
 };
 
-//5.- Pedir nombre, determinar la cantidad de vocales y consonantes y mostrar la cantidad de cada uno en pantalla con alert.
+//Función para pedir nombre y determinar la cantidad de vocales y consonantes que luego muestra con alert
 
 function opcion5 () {
-    let name = prompt('Hola, por favor ingresa tu nombre:');
+    let name = prompt('Hola, por favor ingresa tu nombre:').toLowerCase();
     
     let vowels = name.match(/[aeiouáéíóú]/gim);
     let consons = name.match(/[^aeiouáéíóú]/gim);
